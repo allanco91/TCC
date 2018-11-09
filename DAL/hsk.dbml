@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hsk" Class="hskDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\hsk.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="SHOP.Properties.Settings" SettingsPropertyName="hskConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.categorias" Member="categorias">
+    <Type Name="categoria">
+      <Column Name="idcategorias" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipo" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Association Name="categoria_produto" Member="produtos" ThisKey="idcategorias" OtherKey="idcategoria" Type="produto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cidade" Member="cidades">
+    <Type Name="cidade">
+      <Column Name="CidadeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(38) NOT NULL" CanBeNull="false" />
+      <Column Name="EstadoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Capital" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="cidade_cliente" Member="clientes" ThisKey="CidadeId" OtherKey="cidade" Type="cliente" />
+      <Association Name="estado_cidade" Member="estado" ThisKey="EstadoId" OtherKey="EstadoId" Type="estado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.estado" Member="estados">
+    <Type Name="estado">
+      <Column Name="EstadoId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Sigla" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Association Name="estado_cidade" Member="cidades" ThisKey="EstadoId" OtherKey="EstadoId" Type="cidade" />
+      <Association Name="estado_cliente" Member="clientes" ThisKey="EstadoId" OtherKey="uf" Type="cliente" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sexos" Member="sexos">
+    <Type Name="sexo">
+      <Column Name="idsexos" Type="System.Char" DbType="Char(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Association Name="sexo_cliente" Member="clientes" ThisKey="idsexos" OtherKey="sexo" Type="cliente" />
+    </Type>
+  </Table>
+  <Table Name="dbo.statuspedido" Member="statuspedidos">
+    <Type Name="statuspedido">
+      <Column Name="idstatus" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Association Name="statuspedido_pedido" Member="pedidos" ThisKey="idstatus" OtherKey="statuspedido" Type="pedido" />
+    </Type>
+  </Table>
+  <Table Name="dbo.clientes" Member="clientes">
+    <Type Name="cliente">
+      <Column Name="idclientes" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="telefone" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="sexo" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="endereco" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="bairro" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="numero" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="cep" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="uf" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="cpf_cnpj" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Association Name="cliente_pedido" Member="pedidos" ThisKey="idclientes" OtherKey="idcliente" Type="pedido" />
+      <Association Name="cidade_cliente" Member="cidade1" ThisKey="cidade" OtherKey="CidadeId" Type="cidade" IsForeignKey="true" />
+      <Association Name="estado_cliente" Member="estado" ThisKey="uf" OtherKey="EstadoId" Type="estado" IsForeignKey="true" />
+      <Association Name="sexo_cliente" Member="sexo1" ThisKey="sexo" OtherKey="idsexos" Type="sexo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.itenspedido" Member="itenspedidos">
+    <Type Name="itenspedido">
+      <Column Name="iditenspedido" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idpedido" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idproduto" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="quantidade" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="valor" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="valortotal" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="pedido_itenspedido" Member="pedido" ThisKey="idpedido" OtherKey="idpedidos" Type="pedido" IsForeignKey="true" />
+      <Association Name="produto_itenspedido" Member="produto" ThisKey="idproduto" OtherKey="idprodutos" Type="produto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pedidos" Member="pedidos">
+    <Type Name="pedido">
+      <Column Name="idpedidos" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idcliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="valortotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="statuspedido" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dataliberacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dataentregue" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datamodificacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="datapagamento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="pedido_itenspedido" Member="itenspedidos" ThisKey="idpedidos" OtherKey="idpedido" Type="itenspedido" />
+      <Association Name="cliente_pedido" Member="cliente" ThisKey="idcliente" OtherKey="idclientes" Type="cliente" IsForeignKey="true" />
+      <Association Name="statuspedido_pedido" Member="statuspedido1" ThisKey="statuspedido" OtherKey="idstatus" Type="statuspedido" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.produtos" Member="produtos">
+    <Type Name="produto">
+      <Column Name="idprodutos" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="idcategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="marca" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="valorvenda" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="valorcompra" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="saldoestoque" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Association Name="produto_itenspedido" Member="itenspedidos" ThisKey="idprodutos" OtherKey="idproduto" Type="itenspedido" />
+      <Association Name="categoria_produto" Member="categoria" ThisKey="idcategoria" OtherKey="idcategorias" Type="categoria" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.usuarios" Member="usuarios">
+    <Type Name="usuario">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="login" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="senha" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="admin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

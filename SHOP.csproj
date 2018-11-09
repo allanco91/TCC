@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{428052EA-E8FD-4F9E-9D9D-5344B97E6EF9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SHOP</RootNamespace>
+    <AssemblyName>SHOP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\acessoLinqTabelas.cs" />
+    <Compile Include="DAL\connectionString.cs" />
+    <Compile Include="DAL\dalCategoria.cs" />
+    <Compile Include="DAL\dalCidade.cs" />
+    <Compile Include="DAL\dalCliente.cs" />
+    <Compile Include="DAL\dalEstado.cs" />
+    <Compile Include="DAL\dalItensPedido.cs" />
+    <Compile Include="DAL\dalPedido.cs" />
+    <Compile Include="DAL\dalProduto.cs" />
+    <Compile Include="DAL\dalSexo.cs" />
+    <Compile Include="DAL\dalUsuarios.cs" />
+    <Compile Include="DAL\hsk.cs">
+      <DependentUpon>hsk.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\hsk.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hsk.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Categorias.cs" />
+    <Compile Include="Model\Cidades.cs" />
+    <Compile Include="Model\Clientes.cs" />
+    <Compile Include="Model\Estados.cs" />
+    <Compile Include="Model\ItensPedidos.cs" />
+    <Compile Include="Model\Pedidos.cs" />
+    <Compile Include="Model\Produtos.cs" />
+    <Compile Include="Model\Sexos.cs" />
+    <Compile Include="Model\Usuarios.cs" />
+    <Compile Include="UI\cadCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\cadCategoria.Designer.cs">
+      <DependentUpon>cadCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\cadCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\cadCliente.Designer.cs">
+      <DependentUpon>cadCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\cadUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\cadUsuario.Designer.cs">
+      <DependentUpon>cadUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\gerPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\gerPedido.Designer.cs">
+      <DependentUpon>gerPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\imprimirPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\imprimirPedido.Designer.cs">
+      <DependentUpon>imprimirPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\modPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\modPedido.Designer.cs">
+      <DependentUpon>modPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\cadPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\cadPedido.Designer.cs">
+      <DependentUpon>cadPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\cadProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\cadProduto.Designer.cs">
+      <DependentUpon>cadProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\formMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\formMostra.Designer.cs">
+      <DependentUpon>formMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\modCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\modCategoria.Designer.cs">
+      <DependentUpon>modCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\modCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\modCliente.Designer.cs">
+      <DependentUpon>modCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\modProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\modProduto.Designer.cs">
+      <DependentUpon>modProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\modUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\modUsuario.Designer.cs">
+      <DependentUpon>modUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\pesCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\pesCategoria.Designer.cs">
+      <DependentUpon>pesCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\pesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\pesCliente.Designer.cs">
+      <DependentUpon>pesCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\pesPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\pesPedido.Designer.cs">
+      <DependentUpon>pesPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\pesProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\pesProduto.Designer.cs">
+      <DependentUpon>pesProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\pesUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\pesUsuario.Designer.cs">
+      <DependentUpon>pesUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PrincipalAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PrincipalAdmin.Designer.cs">
+      <DependentUpon>PrincipalAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\relPedidoCompleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\relPedidoCompleto.Designer.cs">
+      <DependentUpon>relPedidoCompleto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\repwCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\repwCategoria.Designer.cs">
+      <DependentUpon>repwCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\repwClienteCompleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\repwClienteCompleto.Designer.cs">
+      <DependentUpon>repwClienteCompleto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\repwClienteSimples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\repwClienteSimples.Designer.cs">
+      <DependentUpon>repwClienteSimples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\repwPedidoPorData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\repwPedidoPorData.Designer.cs">
+      <DependentUpon>repwPedidoPorData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\repwPedidoSimples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\repwPedidoSimples.Designer.cs">
+      <DependentUpon>repwPedidoSimples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\repwProdSemEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\repwProdSemEstoque.Designer.cs">
+      <DependentUpon>repwProdSemEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\repwImprimePedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\repwImprimePedido.Designer.cs">
+      <DependentUpon>repwImprimePedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\repwProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\repwProduto.Designer.cs">
+      <DependentUpon>repwProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\repwPedidoCompleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\repwPedidoCompleto.Designer.cs">
+      <DependentUpon>repwPedidoCompleto.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report\repClienteSimples.rdlc" />
+    <EmbeddedResource Include="UI\cadCategoria.resx">
+      <DependentUpon>cadCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\cadCliente.resx">
+      <DependentUpon>cadCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\cadUsuario.resx">
+      <DependentUpon>cadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\gerPedido.resx">
+      <DependentUpon>gerPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\imprimirPedido.resx">
+      <DependentUpon>imprimirPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\modPedido.resx">
+      <DependentUpon>modPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\cadPedido.resx">
+      <DependentUpon>cadPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\cadProduto.resx">
+      <DependentUpon>cadProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\formMostra.resx">
+      <DependentUpon>formMostra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\modCategoria.resx">
+      <DependentUpon>modCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\modCliente.resx">
+      <DependentUpon>modCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\modProduto.resx">
+      <DependentUpon>modProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\modUsuario.resx">
+      <DependentUpon>modUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\pesCategoria.resx">
+      <DependentUpon>pesCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\pesCliente.resx">
+      <DependentUpon>pesCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\pesPedido.resx">
+      <DependentUpon>pesPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\pesProduto.resx">
+      <DependentUpon>pesProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\pesUsuario.resx">
+      <DependentUpon>pesUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\repClienteCompleto.rdlc" />
+    <EmbeddedResource Include="Report\repProduto.rdlc" />
+    <EmbeddedResource Include="Report\repCategoria.rdlc" />
+    <EmbeddedResource Include="Report\repPedidoSimples.rdlc" />
+    <EmbeddedResource Include="Report\repPedidoCompleto.rdlc" />
+    <EmbeddedResource Include="UI\PrincipalAdmin.resx">
+      <DependentUpon>PrincipalAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\relPedidoCompleto.resx">
+      <DependentUpon>relPedidoCompleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\repPedidoPorDataRegistro.rdlc" />
+    <EmbeddedResource Include="UI\repwCategoria.resx">
+      <DependentUpon>repwCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\repwClienteCompleto.resx">
+      <DependentUpon>repwClienteCompleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\repwClienteSimples.resx">
+      <DependentUpon>repwClienteSimples.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\repwPedidoPorData.resx">
+      <DependentUpon>repwPedidoPorData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\repwPedidoSimples.resx">
+      <DependentUpon>repwPedidoSimples.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\repwProdSemEstoque.resx">
+      <DependentUpon>repwProdSemEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\repSemEstoque.rdlc" />
+    <EmbeddedResource Include="Report\repImprimePedido.rdlc" />
+    <EmbeddedResource Include="UI\repwImprimePedido.resx">
+      <DependentUpon>repwImprimePedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\repwProduto.resx">
+      <DependentUpon>repwProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\repwPedidoCompleto.resx">
+      <DependentUpon>repwPedidoCompleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="DAL\hsk.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>hsk.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\hsk.dbml.layout">
+      <DependentUpon>hsk.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\SHOP.DAL.dalCliente+mostraCliente.datasource" />
+    <None Include="Properties\DataSources\SHOP.DAL.dalPedido+imprimePedido.datasource" />
+    <None Include="Properties\DataSources\SHOP.DAL.dalPedido+pesqPedido.datasource" />
+    <None Include="Properties\DataSources\SHOP.DAL.dalProduto+consultaProduto.datasource" />
+    <None Include="Properties\DataSources\SHOP.Model.Categorias.datasource" />
+    <None Include="Properties\DataSources\SHOP.UI.gerPedido+ItensView.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hsk.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="hsk_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>hsk.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.10.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2008 Express</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

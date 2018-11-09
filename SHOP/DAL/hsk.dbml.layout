@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 8.875" name="hsk">
+  <DataContextMoniker Name="/hskDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c7029f26-9f27-4ff7-bd35-d0dcc7e463a1" absoluteBounds="0.5, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/hskDataContext/categoria" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a5e65157-2613-4a36-afde-e67775afb2f6" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="92377025-a74b-469c-8fe5-bba7964e3f62" absoluteBounds="9.375, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/hskDataContext/cidade" />
+      <nestedChildShapes>
+        <elementListCompartment Id="822215cf-cf3c-4883-a23f-ed560ffbbcc1" absoluteBounds="9.39, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="128a405c-bc40-4c29-9468-d31d3e654ac2" absoluteBounds="6.625, 0.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/hskDataContext/estado" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23029b38-6bff-4443-ab6c-bf2d190ae179" absoluteBounds="6.64, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.625 : 1.47199625651042); (9.375 : 1.47199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/hskDataContext/estado/estado_cidade" />
+      <nodes>
+        <classShapeMoniker Id="128a405c-bc40-4c29-9468-d31d3e654ac2" />
+        <classShapeMoniker Id="92377025-a74b-469c-8fe5-bba7964e3f62" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="535000d0-3a96-43dc-a563-6b602689950d" absoluteBounds="0.5, 2.375, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/hskDataContext/itenspedido" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4a66d33-50c7-4654-80af-1e00570596de" absoluteBounds="0.51499999999999968, 2.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd475c49-831d-4d13-8452-99846249acc2" absoluteBounds="0.5, 4.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/hskDataContext/pedido" />
+      <nestedChildShapes>
+        <elementListCompartment Id="147c33ca-0ce0-4034-b1de-fdab90d4eb8c" absoluteBounds="0.51499999999999968, 5.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 4.75); (1.5 : 4.14589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/hskDataContext/pedido/pedido_itenspedido" />
+      <nodes>
+        <classShapeMoniker Id="bd475c49-831d-4d13-8452-99846249acc2" />
+        <classShapeMoniker Id="535000d0-3a96-43dc-a563-6b602689950d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="687bcced-53fb-4663-a305-d0d0a98c1340" absoluteBounds="3.625, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/hskDataContext/produto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f151908d-7f2f-4dd7-b076-1d664861e16e" absoluteBounds="3.64, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.21875 : 2.7131982421875); (4.21875 : 3.13784962109375); (2.5 : 3.13784962109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/hskDataContext/produto/produto_itenspedido" />
+      <nodes>
+        <classShapeMoniker Id="687bcced-53fb-4663-a305-d0d0a98c1340" />
+        <classShapeMoniker Id="535000d0-3a96-43dc-a563-6b602689950d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 1.31814697265625); (3.625 : 1.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/hskDataContext/categoria/categoria_produto" />
+      <nodes>
+        <classShapeMoniker Id="c7029f26-9f27-4ff7-bd35-d0dcc7e463a1" />
+        <classShapeMoniker Id="687bcced-53fb-4663-a305-d0d0a98c1340" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bf2863d6-2deb-4e42-b40d-efc668333ec4" absoluteBounds="9.5, 6, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/hskDataContext/sexo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d42be16b-856d-487b-b968-8292fb6c8088" absoluteBounds="9.515, 6.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c4c4b0e5-6690-4575-b312-f7a759fcdd83" absoluteBounds="0.625, 7.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/hskDataContext/statuspedido" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4afd2204-6577-4d52-a74b-7e6300b26419" absoluteBounds="0.64000000000000012, 7.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5625 : 7.375); (1.5625 : 6.52089680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/hskDataContext/statuspedido/statuspedido_pedido" />
+      <nodes>
+        <classShapeMoniker Id="c4c4b0e5-6690-4575-b312-f7a759fcdd83" />
+        <classShapeMoniker Id="bd475c49-831d-4d13-8452-99846249acc2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="65aa1a43-6fd8-4227-b400-7e3841797ac6" absoluteBounds="5, 3.875, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/hskDataContext/cliente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b345830-e931-4cdd-90be-710632954c3a" absoluteBounds="5.015, 4.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 5.63544840494792); (2.5 : 5.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/hskDataContext/cliente/cliente_pedido" />
+      <nodes>
+        <classShapeMoniker Id="65aa1a43-6fd8-4227-b400-7e3841797ac6" />
+        <classShapeMoniker Id="bd475c49-831d-4d13-8452-99846249acc2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.40625 : 2.45359537760417); (9.40625 : 4.90625); (7 : 4.90625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/hskDataContext/cidade/cidade_cliente" />
+      <nodes>
+        <classShapeMoniker Id="92377025-a74b-469c-8fe5-bba7964e3f62" />
+        <classShapeMoniker Id="65aa1a43-6fd8-4227-b400-7e3841797ac6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.8125 : 2.06899251302083); (6.8125 : 3.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/hskDataContext/estado/estado_cliente" />
+      <nodes>
+        <classShapeMoniker Id="128a405c-bc40-4c29-9468-d31d3e654ac2" />
+        <classShapeMoniker Id="65aa1a43-6fd8-4227-b400-7e3841797ac6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.5 : 6.59215413411458); (7 : 6.59215413411458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/hskDataContext/sexo/sexo_cliente" />
+      <nodes>
+        <classShapeMoniker Id="bf2863d6-2deb-4e42-b40d-efc668333ec4" />
+        <classShapeMoniker Id="65aa1a43-6fd8-4227-b400-7e3841797ac6" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
